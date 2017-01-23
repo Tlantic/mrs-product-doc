@@ -37,9 +37,7 @@ Admonition is a handy feature that adds block-styled side content to your docume
 
 This will print the following block:
 
-{{< note title="Note" >}}
-Nothing to see here, move along.
-{{< /note >}}
+
 
 The shortcode adds a neutral color for the note class and a red color for the warning class. You can also add a custom title:
 

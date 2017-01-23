@@ -11,6 +11,8 @@ COPY . /app
 
 WORKDIR /app
 
+RUN chmod +x hugo
+
 EXPOSE 7777
 
 CMD ./hugo server --port=7777

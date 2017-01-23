@@ -1,0 +1,15 @@
+cd {{.Workspace}}
+
+#Main Image
+docker build -t tlantic/develop-mrs-product-doc:{{.ReleaseBuildInfo.ReleaseData.TagName}} -f Dockerfile .
+
+docker stop develop-mrs-product-doc
+docker rm develop-mrs-product-doc
+
+docker run -d -p 8888:4567 --name=develop-mrs-product-doc \
+           tlantic/develop-mrs-product-doc:{{.ReleaseBuildInfo.ReleaseData.TagName}}
+
+curl -X POST \
+-H 'Content-type: application/json' \
+--data '{"text": "Release tlantic/develop-mrs-product-doc:{{.ReleaseBuildInfo.ReleaseData.TagName}} instalada com *sucesso*.", "channel": "#t-deploys", "username": "navyhook"}' \
+https://hooks.slack.com/services/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

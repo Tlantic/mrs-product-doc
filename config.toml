@@ -1,0 +1,98 @@
+baseurl = "https://example.org/"
+languageCode = "en-us"
+title = "MRS Product Documentation"
+theme = "hugo-material-docs"
+metadataformat = "yaml"
+canonifyurls = true
+# Enable Google Analytics by entering your tracking id
+googleAnalytics = ""
+
+[params]
+	# General information
+	author = "Tlantic"
+	description = "Tlantic MRS Product Documentation"
+	copyright = "Released under the MIT license"
+
+	# Repository
+	#provider = "GitHub"
+	#repo_url = "https://github.com/Tlantic"
+
+	version = "1.0.0"
+	logo = "images/logo.png"
+	favicon = ""
+
+	permalink = "#"
+
+	# Custom assets
+	custom_css = []
+	custom_js  = []
+
+	# Syntax highlighting theme
+	highlight_css  = ""
+
+	[params.palette]
+    	primary = "light-blue darken-4"
+    	accent  = "grey darken-2"
+
+    [params.font]
+    	text = "Ubuntu"
+    	code = "Ubuntu Mono"
+
+
+[social]
+	twitter = ""
+	github  = "Tlantic"
+	email   = "mrs@tlantic.com"
+
+
+[[menu.main]]
+	name   = "Fundamentos"
+	url    = "/"
+	weight = 0
+
+[[menu.main]]
+	name   = "Modulos API Serviços"
+	url    = "getting-started/"
+	weight = 10
+
+[[menu.main]]
+	name   = "Modulos Api Integração"
+	url    = "adding-content/"
+	weight = 30
+
+[[menu.main]]
+	name   = "Modulos Ambiente"
+	url    = "adding-content/"
+	weight = 40
+
+[[menu.main]]
+	name   = "Conectores"
+	url    = "adding-content/"
+	weight = 50
+
+[[menu.main]]
+	name   = "App - InStore"
+	url    = "adding-content/"
+	weight = 51
+
+[[menu.main]]
+	name   = "App - Cockpit"
+	url    = "adding-content/"
+	weight = 52
+
+[[menu.main]]
+	name   = "Tutoriais"
+	url    = "license/"
+	weight = 80
+
+[[menu.main]]
+	name   = "Wiki"
+	url    = "license/"
+	weight = 80
+
+
+[blackfriday]
+	smartypants	= true
+	fractions = true
+	smartDashes = true
+	plainIDAnchors = true

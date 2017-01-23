@@ -6,7 +6,7 @@ docker build -t tlantic/develop-mrs-product-doc:{{.ReleaseBuildInfo.ReleaseData.
 docker stop develop-mrs-product-doc
 docker rm develop-mrs-product-doc
 
-docker run -d -p 8888:4567 --name=develop-mrs-product-doc \
+docker run -d -p 7777:7777 --name=develop-mrs-product-doc \
            tlantic/develop-mrs-product-doc:{{.ReleaseBuildInfo.ReleaseData.TagName}}
 
 curl -X POST \

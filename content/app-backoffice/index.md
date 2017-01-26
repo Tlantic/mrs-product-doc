@@ -18,6 +18,28 @@ O mapping utilizado é o seguinte: [Mapping Gateway](/backoffice/mappings/mappin
 Esta secção contém diversas queries para obtenção de estatísticas sobre os
 pedidos realizados à `gateway`.
 
+### Últimos N resultados
+
+Devolve os últimos `N` resultados (neste caso 20). Filtra as propriedades
+retornadas.
+
+```js
+POST /gateway/http-logger/_search?pretty
+{
+  "size": 20,
+  "_source": ["ip", "time", "method", "uri", "host", "service_path", "product", "client", "status", "service_name"],
+  "query": {
+    "match_all": {}
+  },
+  "sort": [
+    {
+      "time": {
+        "order": "desc"
+      }
+    }
+  ]
+}
+```
 
 ### Estatísticas de Pedidos
 
@@ -159,6 +181,40 @@ POST /gateway/http-logger/_search?pretty
           "terms": {
             "field": "ip",
             "size": 0
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+### Pedidos por Status Code
+
+Devolve, por cliente e verbo HTTP, os pedidos agrupados por [Status Code](https://httpstatuses.com/).
+
+
+```js
+POST /gateway/http-logger/_search?pretty
+{
+  "size": 0,
+  "aggregations": {
+    "by_client": {
+      "terms": {
+        "field": "client"
+      },
+      "aggregations": {
+        "by_method": {
+          "terms": {
+            "field": "method"
+          },
+          "aggregations": {
+            "by_status_code": {
+              "terms": {
+                "field": "status",
+                "order": { "_term" : "asc" }
+              }
+            }
           }
         }
       }

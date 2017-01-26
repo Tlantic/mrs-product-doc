@@ -51,19 +51,30 @@ on and customize the theme through some options.
 
 ## Catalog
 
-Before you are able to deploy your documentation you should take a few minute to adjust some information in the `config.toml`. Open the file in an editor:
+O serviço do catálogo é responsável por devolver dados à aplicação `MRS Instore`.
 
-```toml
-baseurl = "https://example.com/"
-languageCode = "en-us"
-title = "Material Docs"
+Alguns exemplos de funcionalidades:
 
-[params]
-  # General information
-  author = "Digitalcraftsman"
-  description = "A material design theme for documentations."
-  copyright = "Released under the MIT license"
-```
+* Pesquisa por artigo (nome, descrição, SKU, EAN)
+* Ficha de Artigo
+  * Entrada principal
+  * Stock
+  * Stock noutras lojas
+
+### Ficha de Artigo
+
+A ficha de artigo devolve informação a partir de templates definidos por
+cliente. Estes templates indicam que informação é necessário obter: em alguns
+casos, a informação é obtida através de chamadas a serviços externos
+como por exemplo, o stock.
+
+A ficha de artigo atual é composta por três templates:
+
+Client | Product Overview | Stock | Stock Other Stores
+-------|----------|-------|-------------------
+Tlantic|[Product](/catalog/tlantic/product-overview.json)|[Stock](/catalog/tlantic/product-stock.json)|[Stock Others](/catalog/tlantic/product-stock-others.json)
+Parfois|[Product](/catalog/parfois/product-overview.json)|[Stock](/catalog/parfois/product-stock.json)|[Stock Others](/catalog/parfois/product-stock-others.json)
+
 
 ## Tasks
 

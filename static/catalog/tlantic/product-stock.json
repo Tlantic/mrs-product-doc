@@ -1,0 +1,104 @@
+{
+  "code": "product-stock",
+  "description": "Client product stock page skeleton",
+  "value": [
+    {
+      "code": "item_details",
+      "template": "map",
+      "attributes": {
+        "condensed": true
+      },
+      "value": [
+        {
+          "code": "mrs_name",
+          "value": {
+            "$ref": "$.product.name"
+          }
+        },
+        {
+          "code": "mrs_image_default",
+          "description": {
+            "$ref": "$.product.name"
+          },
+          "value": {
+            "$ref": "$.product.image"
+          }
+        },
+        {
+          "code": "mrs_sku",
+          "description": "SKU",
+          "value": {
+            "$ref": "$.product.sku"
+          }
+        },
+        {
+          "code": "mrs_ean",
+          "description": "EAN",
+          "value": {
+            "$ref": "$.product.ean"
+          }
+        },
+        {
+          "code": "mrs_status",
+          "description": "Status",
+          "value": {
+            "$ref": "$.product.status"
+          }
+        }
+      ]
+    },
+    {
+      "code": "erp_stock",
+      "description": "${erp-stock}",
+      "template": "list",
+      "value": [
+        {
+          "code": "stock_on_hand",
+          "description": "${stock-on-hand}",
+          "value": {
+            "$ref": "$.erp_stock.stock_on_hand"
+          }
+        },
+        {
+          "code": "stock_unavailable",
+          "description": "${stock-unavailable}",
+          "value": {
+            "$ref": "$.erp_stock.stock_unavailable"
+          }
+        },
+        {
+          "code": "stock_on_transit",
+          "description": "${stock-on-transit}",
+          "value": {
+            "$ref": "$.erp_stock.stock_on_transit"
+          }
+        },
+        {
+          "code": "stock_on_order",
+          "description": "${stock-on-order}",
+          "value": {
+            "$ref": "$.erp_stock.stock_on_order"
+          }
+        }
+      ]
+    },
+    {
+      "code": "item_related_pages",
+      "template": "nav_list",
+      "value": [
+        {
+          "code": "stock",
+          "description": "${stock-other-stores}",
+          "value": "product-stock-others"
+        }
+      ]
+    }
+  ],
+  "applicationId": "489a598e-259c-4e25-974e-5de00b29f707",
+  "_type": "setting",
+  "_uId": "8d0985c1-a52e-4bc1-aef9-a6088ec46009",
+  "_createDate": 1475510684,
+  "_updateDate": 1475510684,
+  "public": false,
+  "status": "A"
+}

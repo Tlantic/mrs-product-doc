@@ -1,0 +1,141 @@
+{
+  "code": "product-overview",
+  "description": "Client product overview skeleton",
+  "value": [
+    {
+      "code": "item_details",
+      "template": "map",
+      "attributes": {
+        "condensed": false
+      },
+      "value": [
+        {
+          "code": "mrs_name",
+          "value": {
+            "$ref": "$.product.name"
+          }
+        },
+        {
+          "code": "mrs_image_default",
+          "description": {
+            "$ref": "$.product.name"
+          },
+          "value": {
+            "$ref": "$.product.image"
+          }
+        },
+        {
+          "code": "mrs_sku",
+          "description": "SKU",
+          "value": {
+            "$ref": "$.product.sku"
+          }
+        },
+        {
+          "code": "mrs_ean",
+          "description": "EAN",
+          "value": {
+            "$ref": "$.product.ean"
+          }
+        },
+        {
+          "code": "mrs_status",
+          "description": "Status",
+          "value": {
+            "$ref": "$.product.status"
+          }
+        }
+      ]
+    },
+    {
+      "code": "item_price",
+      "template": "grid",
+      "description": "${price}",
+      "value": [
+        {
+          "code": "row",
+          "value": [
+            {
+              "code": "col",
+              "value": [
+                {
+                  "code": "row",
+                  "value": [
+                    {
+                      "code": "mrs_price",
+                      "description": "MRS",
+                      "value": {
+                        "$ref": "$.mrs_price.value"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "code": "row",
+                  "value": [
+                    {
+                      "code": "mrs_erp_price",
+                      "description": "ERP",
+                      "value": {
+                        "$ref": "$.erp_price.value"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "mrs_attributes",
+      "description": "${attributes}",
+      "template": "list",
+      "value": {
+        "$ref": "$.mrs_attributes",
+        "$map": {
+          "code": "mrs_attribute",
+          "description": {
+            "$ref": "@.attribute"
+          },
+          "value": {
+            "$ref": "@.siblings",
+            "$map": {
+              "code": "mrs_sibling_attribute",
+              "description": {
+                "$ref": "@.attribute"
+              },
+              "value": {
+                "$ref": "@.skus"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "code": "item_related_pages",
+      "template": "nav_list",
+      "value": [
+        {
+          "code": "stock",
+          "description": "${stock}",
+          "value": "product-stock"
+        },
+        {
+          "code": "price",
+          "description": "${price} & ${promotions}",
+          "value": "product-price"
+        }
+      ]
+    }
+  ],
+  "applicationId": "489a598e-259c-4e25-974e-5de00b29f707",
+  "_type": "setting",
+  "_uId": "7c3cb8c2-23eb-40d1-bdc4-656211162fad",
+  "_createDate": 1474561698,
+  "_updateDate": 1474561698,
+  "public": false,
+  "status": "A"
+}

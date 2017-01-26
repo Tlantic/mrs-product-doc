@@ -57,7 +57,7 @@ googleAnalytics = ""
 
 [[menu.main]]
 	name   = "Modulos Api Integração"
-	url    = "adding-content/"
+	url    = "integracao/"
 	weight = 30
 
 [[menu.main]]
@@ -81,8 +81,13 @@ googleAnalytics = ""
 	weight = 52
 
 [[menu.main]]
+	name   = "App - Backoffice"
+	url    = "app-backoffice/"
+	weight = 53
+
+[[menu.main]]
 	name   = "Tutoriais"
-	url    = "license/"
+	url    = "tutoriais/"
 	weight = 80
 
 [[menu.main]]

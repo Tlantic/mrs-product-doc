@@ -1,0 +1,152 @@
+{
+  "gateway": {
+    "mappings": {
+      "http-logger": {
+        "properties": {
+          "base_path": {
+            "type": "string",
+            "index": "not_analyzed"
+          },
+          "client": {
+            "type": "string"
+          },
+          "elapsed_time": {
+            "type": "long"
+          },
+          "host": {
+            "type": "string"
+          },
+          "ip": {
+            "type": "string",
+            "index": "not_analyzed"
+          },
+          "method": {
+            "type": "string"
+          },
+          "product": {
+            "type": "string"
+          },
+          "protocol": {
+            "type": "string"
+          },
+          "request_body": {
+            "type": "string"
+          },
+          "request_header": {
+            "properties": {
+              "Accept": {
+                "type": "string"
+              },
+              "Accept-Encoding": {
+                "type": "string"
+              },
+              "Accept-Language": {
+                "type": "string"
+              },
+              "Authorization": {
+                "type": "string"
+              },
+              "Cache-Control": {
+                "type": "string"
+              },
+              "Connection": {
+                "type": "string"
+              },
+              "Content-Length": {
+                "type": "string"
+              },
+              "Content-Type": {
+                "type": "string"
+              },
+              "Goway-Client": {
+                "type": "string"
+              },
+              "Goway-Product": {
+                "type": "string"
+              },
+              "Goway-Version": {
+                "type": "string"
+              },
+              "Mrs-Application-Id": {
+                "type": "string"
+              },
+              "Mrs-Organization-Id": {
+                "type": "string"
+              },
+              "Mrs-User-City": {
+                "type": "string"
+              },
+              "Mrs-User-Email": {
+                "type": "string"
+              },
+              "Mrs-User-Id": {
+                "type": "string"
+              },
+              "Mrs-User-Postalcode": {
+                "type": "string"
+              },
+              "Mrs-User-Username": {
+                "type": "string"
+              },
+              "Origin": {
+                "type": "string"
+              },
+              "Postman-Token": {
+                "type": "string"
+              },
+              "Pragma": {
+                "type": "string"
+              },
+              "Referer": {
+                "type": "string"
+              },
+              "User-Agent": {
+                "type": "string"
+              },
+              "X-Forwarded-For": {
+                "type": "string"
+              },
+              "X-Real-Ip": {
+                "type": "string"
+              },
+              "X-Request-Id": {
+                "type": "string"
+              }
+            }
+          },
+          "response_body": {
+            "type": "string"
+          },
+          "service_name": {
+            "type": "string",
+            "index": "not_analyzed"
+          },
+          "service_path": {
+            "type": "string",
+            "index": "not_analyzed"
+          },
+          "size": {
+            "type": "long"
+          },
+          "status": {
+            "type": "long"
+          },
+          "time": {
+            "type": "date",
+            "format": "strict_date_optional_time||epoch_millis"
+          },
+          "uri": {
+            "type": "string",
+            "index": "not_analyzed"
+          },
+          "username": {
+            "type": "string"
+          },
+          "version": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

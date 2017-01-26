@@ -1,0 +1,88 @@
+[
+  {
+    "mrs": {
+      "_createDate": 1481742120,
+      "_type": "setting",
+      "_uId": "fed346ca-a073-490d-8f09-3d53293e1d54",
+      "_updateDate": 1481742120,
+      "applicationId": "8fd8941e-8dea-468d-8c9c-a01393d9bfc1",
+      "code": "product-stock-others",
+      "description": "Client product stock in other stores page skeleton",
+      "public": false,
+      "status": "A",
+      "value": [
+        {
+          "attributes": {
+            "condensed": true
+          },
+          "code": "item_details",
+          "template": "map",
+          "value": [
+            {
+              "code": "mrs_name",
+              "value": {
+                "$ref": "$.product.name"
+              }
+            },
+            {
+              "code": "mrs_image_default",
+              "description": {
+                "$ref": "$.product.name"
+              },
+              "value": {
+                "$ref": "$.product.image"
+              }
+            },
+            {
+              "code": "mrs_sku",
+              "description": "SKU",
+              "value": {
+                "$ref": "$.product.sku"
+              }
+            },
+            {
+              "code": "mrs_ean",
+              "description": "EAN",
+              "value": {
+                "$ref": "$.product.ean"
+              }
+            },
+            {
+              "code": "mrs_stock",
+              "description": "SOH",
+              "value": {
+                "$ref": "$.mrs_stock.value"
+              }
+            },
+            {
+              "code": "mrs_status",
+              "description": "Status",
+              "value": {
+                "$ref": "$.product.status"
+              }
+            }
+          ]
+        },
+        {
+          "code": "stock_others",
+          "description": "${stock}",
+          "template": "list",
+          "value": {
+            "$map": {
+              "code": {
+                "$ref": "@.storeId"
+              },
+              "description": {
+                "$ref": "@.storeId"
+              },
+              "value": {
+                "$ref": "@.stockOnHand"
+              }
+            },
+            "$ref": "$.product.stores"
+          }
+        }
+      ]
+    }
+  }
+]

@@ -1,0 +1,167 @@
+[
+  {
+    "mrs": {
+      "_createDate": 1481742040,
+      "_type": "setting",
+      "_uId": "212b5a7c-799f-4bd0-a92b-b3d0ccbb4cae",
+      "_updateDate": 1481742040,
+      "applicationId": "8fd8941e-8dea-468d-8c9c-a01393d9bfc1",
+      "code": "product-overview",
+      "description": "Client product overview skeleton",
+      "public": false,
+      "status": "A",
+      "value": [
+        {
+          "attributes": {
+            "condensed": false
+          },
+          "code": "item_details",
+          "template": "map",
+          "value": [
+            {
+              "code": "mrs_name",
+              "value": {
+                "$ref": "$.product.name"
+              }
+            },
+            {
+              "code": "mrs_image_default",
+              "description": {
+                "$ref": "$.product.name"
+              },
+              "value": {
+                "$ref": "$.product.image"
+              }
+            },
+            {
+              "code": "mrs_sku",
+              "description": "SKU",
+              "value": {
+                "$ref": "$.product.sku"
+              }
+            },
+            {
+              "code": "mrs_ean",
+              "description": "EAN",
+              "value": {
+                "$ref": "$.product.ean"
+              }
+            },
+            {
+              "code": "mrs_stock",
+              "description": "SOH",
+              "value": {
+                "$ref": "$.mrs_stock.value"
+              }
+            },
+            {
+              "code": "mrs_status",
+              "description": "Status",
+              "value": {
+                "$ref": "$.product.status"
+              }
+            }
+          ]
+        },
+        {
+          "code": "item_price",
+          "description": "${price}",
+          "template": "grid",
+          "value": [
+            {
+              "code": "row",
+              "value": [
+                {
+                  "code": "col",
+                  "value": [
+                    {
+                      "code": "row",
+                      "value": [
+                        {
+                          "code": "mrs_price",
+                          "description": "MRS",
+                          "value": {
+                            "$ref": "$.mrs_price.value"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "code": "row",
+                      "value": [
+                        {
+                          "code": "mrs_erp_price",
+                          "description": "ERP",
+                          "value": {
+                            "$ref": "$.erp_price.value"
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "code": "col",
+                  "value": [
+                    {
+                      "code": "row",
+                      "value": [
+                        {
+                          "code": "mrs_label_price",
+                          "description": "Label",
+                          "value": null
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "mrs_attributes",
+          "description": "Attributes",
+          "template": "list",
+          "value": {
+            "$map": {
+              "code": "mrs_attribute",
+              "description": {
+                "$ref": "@.attribute"
+              },
+              "value": {
+                "$map": {
+                  "code": "mrs_sibling_attribute",
+                  "description": {
+                    "$ref": "@.attribute"
+                  },
+                  "value": {
+                    "$ref": "@.skus"
+                  }
+                },
+                "$ref": "@.siblings"
+              }
+            },
+            "$ref": "$.mrs_attributes"
+          }
+        },
+        {
+          "code": "item_related_pages",
+          "template": "nav_list",
+          "value": [
+            {
+              "code": "stock",
+              "description": "${stock}",
+              "value": "product-stock"
+            },
+            {
+              "code": "price",
+              "description": "${price} & ${promotions}",
+              "value": "product-price"
+            }
+          ]
+        }
+      ]
+    }
+  }
+]

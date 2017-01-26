@@ -1,0 +1,77 @@
+{
+  "code": "product-stock-others",
+  "description": "Client product stock in other stores page skeleton",
+  "value": [
+    {
+      "code": "item_details",
+      "template": "map",
+      "attributes": {
+        "condensed": true
+      },
+      "value": [
+        {
+          "code": "mrs_name",
+          "value": {
+            "$ref": "$.product.name"
+          }
+        },
+        {
+          "code": "mrs_image_default",
+          "description": {
+            "$ref": "$.product.name"
+          },
+          "value": {
+            "$ref": "$.product.image"
+          }
+        },
+        {
+          "code": "mrs_sku",
+          "description": "SKU",
+          "value": {
+            "$ref": "$.product.sku"
+          }
+        },
+        {
+          "code": "mrs_ean",
+          "description": "EAN",
+          "value": {
+            "$ref": "$.product.ean"
+          }
+        },
+        {
+          "code": "mrs_status",
+          "description": "Status",
+          "value": {
+            "$ref": "$.product.status"
+          }
+        }
+      ]
+    },
+    {
+      "code": "stock_others",
+      "description": "${stock}",
+      "template": "list",
+      "value": {
+        "$ref": "$.erp_stock_stores",
+        "$map": {
+          "code": {
+            "$ref": "@.store"
+          },
+          "description": {
+            "$ref": "@.store"
+          },
+          "value": {
+            "$ref": "@.stock.stock_on_hand"
+          }
+        }
+      }
+    }
+  ],
+  "applicationId": "489a598e-259c-4e25-974e-5de00b29f707",
+  "_type": "setting",
+  "_uId": "b7cec674-c670-48a0-89ab-dfbb3aefe1e3",
+  "_createDate": 1476088965,
+  "_updateDate": 1476088965,
+  "public": false,
+  "status": "A"
+}

@@ -67,7 +67,7 @@ googleAnalytics = ""
 
 [[menu.main]]
 	name   = "Conectores"
-	url    = "adding-content/"
+	url    = "conectores/"
 	weight = 50
 
 [[menu.main]]

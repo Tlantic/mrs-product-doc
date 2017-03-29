@@ -76,8 +76,8 @@ googleAnalytics = ""
 	weight = 51
 
 [[menu.main]]
-	name   = "App - Cockpit"
-	url    = "adding-content/"
+	name   = "Cockpit"
+	url    = "cockpit/"
 	weight = 52
 
 [[menu.main]]
